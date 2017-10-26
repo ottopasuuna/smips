@@ -6,6 +6,7 @@ module smips(
     wire [2:0] alu_ctrl;
     wire alu_src;
     wire reg_dest;
+    wire pc_src;
     wire reg_write_enable, ram_write_enable;
     wire write_back_select;
 
