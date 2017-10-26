@@ -75,5 +75,11 @@ module smips(
         .*
     );
 
+    `ifdef COCOTB_SIM
+        initial begin
+            $dumpfile("waveform.vcd");
+            $dumpvars(0, smips);
+        end
+    `endif
 
 endmodule
