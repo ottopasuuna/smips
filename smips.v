@@ -13,6 +13,7 @@ module smips(
     wire [31:0] data_1, data_2, alu_res;
     wire [31:0] ram_data_out;
     wire [31:0] reg_data_2;
+    wire [31:0] branch_target;
 
     // Multiplexers
     reg [31:0] reg_write_data;
@@ -33,15 +34,20 @@ module smips(
         endcase
     end
 
+
     reg [31:0] alu_data_2;
     always @ * begin
         case(alu_src)
             1'b0: alu_data_2 = reg_data_2;
-            1'b1: alu_data_2 = { {16{instruction[15]}}, instruction[15:0] }; // sign extend
+            1'b1: alu_data_2 = branch_target; // sign extend
             default: alu_data_2 = reg_data_2;
         endcase
     end
 
+    sign_extend jump_extend(
+        .in(instruction[15:0]),
+        .out(branch_target)
+    );
 
     alu alu(
         .ctl(alu_ctrl),
