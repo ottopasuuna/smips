@@ -1,0 +1,96 @@
+[*]
+[*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
+[*] Sun Oct 29 04:31:21 2017
+[*]
+[dumpfile] "/home/carl/Programming/verilog/smips/tests/waveform.vcd"
+[dumpfile_mtime] "Sun Oct 29 04:24:37 2017"
+[dumpfile_size] 3137
+[savefile] "/home/carl/Programming/verilog/smips/tests/wave.gtkw"
+[timestart] 0
+[size] 1278 986
+[pos] -1 -1
+*-11.581855 2000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] smips.
+[sst_width] 214
+[signals_width] 242
+[sst_expanded] 1
+[sst_vpaned_height] 285
+@200
+-SMIPS
+@29
+smips.alu_ctrl[2:0]
+@22
+smips.alu_data_2[31:0]
+smips.alu_res[31:0]
+@28
+smips.alu_src
+@22
+smips.branch_target[31:0]
+smips.data_1[31:0]
+smips.data_2[31:0]
+smips.i_addr[31:0]
+smips.instruction[31:0]
+@28
+smips.pc_src
+@22
+smips.ram_data_out[31:0]
+@28
+smips.ram_write_enable
+@22
+smips.reg_data_2[31:0]
+@28
+smips.reg_dest
+@22
+smips.reg_write_data[31:0]
+@28
+smips.reg_write_enable
+@22
+smips.reg_write_reg[4:0]
+@28
+smips.write_back_select
+smips.reset
+smips.clk
+@200
+-ROM
+@22
+smips.rom.i_addr[31:0]
+smips.rom.instruction[31:0]
+@200
+-Program Sequncer
+@22
+smips.prog_seq.branch_target[31:0]
+smips.prog_seq.i_addr[31:0]
+smips.prog_seq.pc[31:0]
+smips.prog_seq.pc_incr[31:0]
+@28
+smips.prog_seq.pc_src
+@200
+-RAM
+@22
+smips.ram.address[31:0]
+smips.ram.rdata[31:0]
+smips.ram.write_data[31:0]
+@28
+smips.ram.write_enable
+@200
+-Register File
+@22
+smips.reg_file.data_1[31:0]
+smips.reg_file.data_2[31:0]
+smips.reg_file.reg_1[4:0]
+smips.reg_file.reg_2[4:0]
+smips.reg_file.write_data[31:0]
+@28
+smips.reg_file.write_enable
+@22
+smips.reg_file.write_reg[4:0]
+@200
+-ALU
+@28
+smips.alu.ctl[2:0]
+@22
+smips.alu.data_1[31:0]
+smips.alu.data_2[31:0]
+smips.alu.res[31:0]
+[pattern_trace] 1
+[pattern_trace] 0
