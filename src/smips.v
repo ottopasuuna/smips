@@ -1,5 +1,6 @@
 module smips(
-    input clk
+    input clk,
+    input reset
 );
 
     // Control signals
