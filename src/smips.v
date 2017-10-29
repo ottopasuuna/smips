@@ -7,10 +7,13 @@ module smips(
     wire [3:0] alu_ctrl;
     wire [1:0] alu_op;
     wire alu_src;
-    wire reg_dest;
+    wire reg_dst;
     wire pc_src;
     wire reg_write_enable, ram_write_enable;
     wire write_back_select;
+    wire branch;
+    wire zero;
+    wire ram_read_enable; // NC
 
     wire [31:0] i_addr, instruction;
     wire [31:0] data_1, alu_res;
@@ -33,7 +36,7 @@ module smips(
 
     reg [4:0] reg_write_reg;
     always @ * begin
-        case(reg_dest)
+        case(reg_dst)
             1'b0: reg_write_reg = instruction[20:16];
             1'b1: reg_write_reg = instruction[15:11];
             default: reg_write_reg = instruction[15:11];
@@ -66,7 +69,9 @@ module smips(
         .res(alu_res),
         .*
     );
+
     instruction_memory rom(.*);
+
     register_file reg_file(
         .reg_1(instruction[25:21]),
         .reg_2(instruction[20:16]),
@@ -76,12 +81,22 @@ module smips(
         .data_2(reg_data_2),
         .*
     );
+
     program_sequencer prog_seq(.*);
+
     data_memory ram(
         .address(alu_res),
         .write_data(reg_data_2),
         .write_enable(ram_write_enable),
         .rdata(ram_data_out),
+        .*
+    );
+
+    control_unit ctrl_unit(
+        .operation(instruction[31:26]),
+        .mem_write(ram_write_enable),
+        .mem_read(ram_read_enable),
+        .mem_to_reg(write_back_select),
         .*
     );
 

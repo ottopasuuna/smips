@@ -4,7 +4,8 @@ module alu(
     input  [3:0]  ctl,
     input  [31:0] data_1,
     input  [31:0] data_2,
-    output reg [31:0] res
+    output reg [31:0] res,
+    output zero
 );
 
     always @ * begin
@@ -17,5 +18,7 @@ module alu(
             default: res = 32'b0;
         endcase
     end
+
+    assign zero = res == 32'd0;
 
 endmodule
