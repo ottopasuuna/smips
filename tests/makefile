@@ -1,4 +1,4 @@
-VERILOG_SOURCES = *.v
+VERILOG_SOURCES = ../src/*.v
 TOPLEVEL = smips
 MODULE = test
 GUI = 1
