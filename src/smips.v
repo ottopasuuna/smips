@@ -24,6 +24,8 @@ module smips(
 
     assign alu_funct = instruction[5:0];
 
+    assign pc_src = branch & zero;
+
     // Multiplexers
     reg [31:0] reg_write_data;
     always @ * begin
