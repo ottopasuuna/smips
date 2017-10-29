@@ -4,7 +4,8 @@ module smips(
 );
 
     // Control signals
-    wire [2:0] alu_ctrl;
+    wire [3:0] alu_ctrl;
+    wire [1:0] alu_op;
     wire alu_src;
     wire reg_dest;
     wire pc_src;
@@ -12,10 +13,13 @@ module smips(
     wire write_back_select;
 
     wire [31:0] i_addr, instruction;
-    wire [31:0] data_1, data_2, alu_res;
+    wire [31:0] data_1, alu_res;
     wire [31:0] ram_data_out;
     wire [31:0] reg_data_2;
     wire [31:0] branch_target;
+    wire [5:0]  alu_funct;
+
+    assign alu_funct = instruction[5:0];
 
     // Multiplexers
     reg [31:0] reg_write_data;
@@ -51,6 +55,11 @@ module smips(
         .out(branch_target)
     );
 
+    alu_control alu_controller(
+        .funct(alu_funct),
+        .*
+    );
+
     alu alu(
         .ctl(alu_ctrl),
         .data_2(alu_data_2),
@@ -70,7 +79,7 @@ module smips(
     program_sequencer prog_seq(.*);
     data_memory ram(
         .address(alu_res),
-        .write_data(data_2),
+        .write_data(reg_data_2),
         .write_enable(ram_write_enable),
         .rdata(ram_data_out),
         .*

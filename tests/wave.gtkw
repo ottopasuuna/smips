@@ -1,10 +1,10 @@
 [*]
 [*] GTKWave Analyzer v3.3.82 (w)1999-2017 BSI
-[*] Sun Oct 29 04:31:21 2017
+[*] Sun Oct 29 06:45:55 2017
 [*]
 [dumpfile] "/home/carl/Programming/verilog/smips/tests/waveform.vcd"
-[dumpfile_mtime] "Sun Oct 29 04:24:37 2017"
-[dumpfile_size] 3137
+[dumpfile_mtime] "Sun Oct 29 06:44:19 2017"
+[dumpfile_size] 3364
 [savefile] "/home/carl/Programming/verilog/smips/tests/wave.gtkw"
 [timestart] 0
 [size] 1278 986
@@ -17,8 +17,6 @@
 [sst_vpaned_height] 285
 @200
 -SMIPS
-@29
-smips.alu_ctrl[2:0]
 @22
 smips.alu_data_2[31:0]
 smips.alu_res[31:0]
@@ -27,7 +25,6 @@ smips.alu_src
 @22
 smips.branch_target[31:0]
 smips.data_1[31:0]
-smips.data_2[31:0]
 smips.i_addr[31:0]
 smips.instruction[31:0]
 @28
@@ -84,10 +81,16 @@ smips.reg_file.write_data[31:0]
 smips.reg_file.write_enable
 @22
 smips.reg_file.write_reg[4:0]
+@201
+-ALU Controller
+@22
+smips.alu_controller.alu_ctrl[3:0]
+@28
+smips.alu_controller.alu_op[1:0]
+@22
+smips.alu_controller.funct[5:0]
 @200
 -ALU
-@28
-smips.alu.ctl[2:0]
 @22
 smips.alu.data_1[31:0]
 smips.alu.data_2[31:0]

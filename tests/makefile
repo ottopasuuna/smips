@@ -1,7 +1,7 @@
 VERILOG_SOURCES = ../src/*.v
 TOPLEVEL = smips
 MODULE = test
-GUI = 1
+COMPILE_ARGS = -I ../src/
 
 include $(COCOTB)/makefiles/Makefile.inc
 include $(COCOTB)/makefiles/Makefile.sim
