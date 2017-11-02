@@ -9,10 +9,13 @@ module instruction_memory(
     integer i;
 
     reg [31:0] rom [0:255];
+
+
     always @(posedge clk) begin
         if(reset == 1'b1)
             for(i=0; i<256; i++)
                 rom[i] = 32'd0;
+            $readmemh("rom.txt", rom, 0,2);
         instruction <= rom[i_addr[7:0]];
     end
 
