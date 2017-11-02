@@ -21,11 +21,4 @@ module alu(
 
     assign zero = res == 32'd0;
 
-    `ifdef COCOTB_SIM
-        initial begin
-            $dumpfile("alu.vcd");
-            $dumpvars(0, alu);
-        end
-    `endif
-
 endmodule
